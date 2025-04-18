@@ -47,14 +47,23 @@ export default {
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
   			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
+  				1: 'hsl(var(--chart-1))',
+  				2: 'hsl(var(--chart-2))',
+  				3: 'hsl(var(--chart-3))',
+  				4: 'hsl(var(--chart-4))',
+  				5: 'hsl(var(--chart-5))'
   			}
-  		}
-  	}
+  		},
+  		animation: {
+  			wiggle: "wiggle 1s ease-in-out infinite",
+  		},
+  		keyframes: {
+  			wiggle: {
+  				"0%, 100%": { transform: "rotate(-3deg)" },
+  				"50%": { transform: "rotate(3deg)" },
+  			},
+  		},
+  	},
   },
-  plugins: [require("tailwindcss-animate")],
 };
+
