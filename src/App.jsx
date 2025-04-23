@@ -4,31 +4,45 @@ import TemperatureCard from "./components/TemperatureCard";
 import FlowerCard from "./components/FlowerCard";
 import SoilHumidityCard from "./components/SoilHumidityCard";
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen w-full bg-gray-50 px-4 py-8 flex items-center justify-center">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {/* Left Column */}
-        <div className="flex flex-col gap-6">
-          <WaterLevelCard level={65} />
-          <FertilizerLevelCard level={40} />
+    <div className="min-h-screen bg-gradient-to-r from-emerald-500 to-emerald-900 p-4 md:p-6 flex items-center justify-center">
+      {/* Main grid container - now properly centered */}
+      <div className="mx-auto grid w-full max-w-7xl gap-4 md:gap-6">
+        {/* Mobile layout (stacked) */}
+        <div className="grid auto-rows-fr gap-4 md:hidden">
+          <FlowerCard className="row-span-2" /> {/* Larger on mobile */}
+          <TemperatureCard />
+          <SoilHumidityCard />
+          <WaterLevelCard />
+          <FertilizerLevelCard />
         </div>
 
-        {/* Center Column */}
-        <div className="flex flex-col items-center justify-center">
-          <div className="w-full max-w-xs">
-            <FlowerCard humidity={75} />
+        {/* Desktop/tablet layout (grid) */}
+        <div className="hidden md:grid md:grid-cols-3 md:grid-rows-2 md:gap-5">
+          {/* First row */}
+          <div>
+            <TemperatureCard/>
           </div>
-        </div>
-
-        {/* Right Column */}
-        <div className="flex flex-col gap-6">
-          <SoilHumidityCard humidity={75} />
-          <TemperatureCard temperature={26} />
+          <div className="md:col-start-1  md:row-start-2">
+            <SoilHumidityCard/>
+          </div>
+          
+          {/* FlowerCard */}
+          <div className="md:row-span-2 md:col-start-2 md:row-start-1 md:h-full">
+            <FlowerCard/>
+          </div>
+          
+          {/* Second row */}
+          <div className="md:col-start-3  md:row-start-1">
+            <WaterLevelCard/>
+          </div>
+          <div className="md:col-start-3">
+            <FertilizerLevelCard/>
+          </div>
+        
         </div>
       </div>
     </div>
   );
 }
-
-export default App;
