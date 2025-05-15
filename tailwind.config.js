@@ -52,7 +52,14 @@ export default {
   				3: 'hsl(var(--chart-3))',
   				4: 'hsl(var(--chart-4))',
   				5: 'hsl(var(--chart-5))'
-  			}
+  			},
+        // Custom colors for lamp controller
+        'dark-bg': 'hsl(224, 71%, 4%)',
+        'card-bg': '#1c1e24',
+        'card-bg-bright': '#292c35', 
+        'lamp-green': 'hsl(142, 73%, 53%)',
+        'lamp-orange': 'hsl(30, 95%, 60%)',
+        'slider-track': '#222631'
   		},
   		animation: {
   			wiggle: "wiggle 1s ease-in-out infinite",

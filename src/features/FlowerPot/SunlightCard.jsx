@@ -1,4 +1,5 @@
 import { Sun } from "lucide-react";
+import "./FlowerCard.css";
 
 function SunlightCard({ level = 90 }) {
   const sunlightStatus =
